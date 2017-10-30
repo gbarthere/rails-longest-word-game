@@ -5,29 +5,44 @@
 
 body {
   font-family: 'Saira Semi Condensed', sans-serif;
+  margin: 0;
 }
+
+#home, #game, #score {
+  height: 100vh;
+}
+
+#home {
+  background: linear-gradient(to right, #114357, #f29492);
+}
+
+#game {
+  background: linear-gradient(to right, #fd746c, #ff9068);
+}
+
+#score {
+  background: linear-gradient(to right, #c02425, #f0cb35);
+}
+
 .container {
-  margin: 150px 0;
+  padding: 100px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.container p, form {
-  padding: 20px;
-}
-
-form input {
-  padding: 10px;
-  border-radius: 3px;
+input {
+  font-size: 2em;
   font-weight: bold;
+  color: white;
+  transition: 0.5s ease;
+  text-decoration: none;
 }
 
-#btn {
-  color: white;
-  background-color: #63A1B9;
-  height: 30px;
-  width: 80px;
-  padding: 5px;
+#home input {
+  background-color: #3D5B96;
 }
+
+
