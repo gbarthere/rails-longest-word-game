@@ -1,6 +1,9 @@
-<p>Your word: <%= $word %></p>
-<p>Time Taken to answer: <%= @result[:time] %></p>
-<p>Your score: <%= @result[:score] %></p>
-<p>Message: <%= @result[:message] %></p>
-
-<%= link_to "Try again", game_path %>
+<div class="container">
+  <p>Your word is <%= $word %></p>
+  <p>It took you <%= @result[:time] %></p>
+  <p>Your scored <%= @result[:score] %></p>
+  <p>You played <%= session[:number_games] %> times</p>
+  <p>Your average score is <%= @average %></p>
+  <p>Message: <%= @result[:message] %></p>
+  <%= link_to "Try again", game_path %>
+</div>

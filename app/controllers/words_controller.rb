@@ -3,32 +3,6 @@ require 'json'
 
 class WordsController < ApplicationController
 
-# def generate_grid(grid_size)
-#    # TODO: generate random grid of letters
-#    array = ("A".."Z").to_a
-#    grid_size.times.map { array.sample }
-#  end
-#
-#  def run_game(attempt, grid, start_time, end_time)
-#  # TODO: runs the game and return detailed hash of result
-#    url = "https://wagon-dictionary.herokuapp.com/#{attempt}"
-#    user_serialized = open(url).read
-#    user = JSON.parse(user_serialized)
-#  
-#    if user["found"] == false
-#      message = "Not an english word"
-#      score = 0
-#    elsif attempt.upcase!.split('').all? { |e| grid.include?(e) & grid.delete(e) } == false
-#      message = "Not in the grid"
-#      score = 0
-#    else
-#      message = "Well done!"
-#      time = end_time - start_time
-#      score = (user["length"] - time) * 1000
-#    end
-#    { time: time, message: message, score: score }
-#  end 
-
 def generate_grid(grid_size)
   Array.new(grid_size) { ('A'..'Z').to_a.sample }
 end
@@ -79,6 +53,25 @@ end
     $time_end = Time.now
     $word = params[:word]
     @result = run_game($word, $grid, $time_start, $time_end)
+    details
+  end
+
+  def details
+
+    if session[:number_games] != nil
+      session[:number_games] += 1
+    else
+      session[:number_games] = 1
+    end
+
+    if session[:total_score] != nil
+      session[:total_score] += @result[:score]
+    else
+      session[:total_score] = 0
+    end
+
+    @average = (session[:total_score] / session[:number_games])
+
   end
 
 end
