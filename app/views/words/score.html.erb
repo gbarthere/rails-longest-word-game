@@ -1,0 +1,6 @@
+<p>Your word: <%= $word %></p>
+<p>Time Taken to answer: <%= @result[:time] %></p>
+<p>Your score: <%= @result[:score] %></p>
+<p>Message: <%= @result[:message] %></p>
+
+<%= link_to "Try again", game_path %>

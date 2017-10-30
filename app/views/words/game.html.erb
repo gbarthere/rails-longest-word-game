@@ -1,0 +1,8 @@
+<h1>******** Welcome to the longest word-game!********</h1>
+<p>Here is your grid:</p>
+<%= $grid.join(" ") %>
+<form action="/score" method="get">
+  <input type="text" name="word" placeholder="Write your longest word">
+  <input type="submit">
+</form>
+
