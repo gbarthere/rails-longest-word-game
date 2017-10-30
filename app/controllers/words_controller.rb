@@ -44,9 +44,20 @@ def english_word?(word)
   return json['found']
 end
 
+  def home
+
+  end
+
   def game
     $time_start = Time.now
-    $grid = generate_grid(9)
+    $select = params[:difficulty]
+    if $select == "Easy"
+      $grid = generate_grid(20)
+    elsif $select == "Medium"
+      $grid = generate_grid(15)
+    else
+      $grid = generate_grid(10)
+    end
   end
 
   def score
